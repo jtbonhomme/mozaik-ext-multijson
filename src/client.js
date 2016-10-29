@@ -1,5 +1,6 @@
 import request from 'superagent-bluebird-promise';
 import chalk   from 'chalk';
+import Promise from 'bluebird';
 
 /**
  * @param {Mozaik} mozaik
@@ -13,7 +14,6 @@ const client = function (mozaik) {
             req.set(header.name, header.value);
         });*/
         mozaik.logger.info(chalk.yellow(`[multijson] calling ${ url }`));
-
         return req.promise();
     }
 
@@ -24,10 +24,18 @@ const client = function (mozaik) {
             } = params;
 
             var arr = [];
+            var builds = [];
+            sources.forEach(source => {
+              builds.push(buildApiRequest(source.url)
+                      .then((res) => {arr.push(JSON.parse(res.text))}));
+            });
 
-            mozaik.logger.info(chalk.yellow(`[multijson] sources are ${ JSON.stringify(sources) }`));
-            return buildApiRequest(sources[0].url)
-                .then(res => JSON.parse(res.text));
+            return Promise.all(builds)
+            .then(function() {
+              mozaik.logger.info(chalk.green(`[multijson] arr ${ JSON.stringify(arr) }`));
+              return arr;
+            })
+
         }
     };
 };

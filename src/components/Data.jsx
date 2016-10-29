@@ -5,6 +5,11 @@ import Mozaik                from 'mozaik/browser';
 
 class Data extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = { builds: [] };
+    }
+
     // Before the component is mounted, the mixin will search for this method on the component.
     // This method MUST return an object with an `id` property.
     // It tells Mozaïk that this component is interested in data coming from `sample` generated with `sampleMethod`
@@ -26,34 +31,30 @@ class Data extends Component {
 
     // This method is automatically invoked each time the `sample.sampleMethod` has fetched some data. 
     // This assumes your method will return an object containing a `count` property.
-    onApiData(value) {
-        this.setState(value);
+    onApiData(builds) {
+        this.setState({ builds });
     }
 
     render() {
-        const state = this.state || {};
+        const { title } = this.props;
+        const { builds } = this.state;
 
-        const {
-            title
-        } = this.props;
-
-        // const { items = [] } = state;
-        const {
-            label,
-            data,
-            time
-        } = state;
-
+        console.log('items : ' + JSON.stringify(builds));
         return (
             <div>
                 <div className="widget__header">
                     <span className="widget__header__subject">
                         {title}
                     </span>
-                    <i className="fa fa-table" />
+                    <i className="fa fa-user-circle" />
                 </div>
                 <div className="json__value">
-                    {label}: {data} - {time}
+                  {builds.map((item, index) =>
+                    <li className="list__list-item" key={index}>
+                      <i className="fa fa-circle-o list__list-item-icon"/>
+                      {item.label}: {item.data} ({item.time})
+                    </li>
+                  )}
                 </div>
             </div>
         );

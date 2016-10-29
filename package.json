@@ -1,6 +1,6 @@
 {
   "name": "mozaik-ext-multijson",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Mozaïk multi source json extension",
   "engines": {
     "node": "0.10.x"
@@ -10,6 +10,7 @@
     "url": "https://github.com/jtbonhomme/mozaik-ext-multijson.git"
   },
   "dependencies": {
+    "bluebird": "^3.4.6",
     "chalk": "^0.5.1",
     "convict": "^1.0.1",
     "react-mixin": "3.0.4",
