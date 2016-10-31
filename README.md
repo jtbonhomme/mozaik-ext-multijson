@@ -32,19 +32,19 @@ In your Mozaik dashboard's config.js file, add the following section:
           url: 'https://dl.dropboxusercontent.com/u/11555789/f1.json',
           label: '${label}',
           data: '${data}',
-          extra:  '${time}'
+          time:  '${time}'
         },
         {
           url: 'https://dl.dropboxusercontent.com/u/11555789/f2.json',
           label: '${label}',
           data: '${data}',
-          extra:  '${time}'
+          time:  '${time}'
         },
         {
           url: 'https://dl.dropboxusercontent.com/u/11555789/f3.json',
           label: '${label}',
           data: '${data}',
-          extra:  '${time}'
+          time:  '${time}'
         }
       ],
       columns: 1, rows: 1,
@@ -66,21 +66,21 @@ In your Mozaik dashboard's config.js file, add the webservice url in the <code>a
           headers: [{name: 'Authorization', value: 'Basic aKjs6LK8ijkSfT'}, {name: 'Content-type', value: 'application/json'}],
           label: '${label}',
           data: '${data}',
-          extra:  '${time}'
+          time:  '${time}'
         },
         {
           url: 'http://mywebservice/rest/api/2/resource/id2',
           headers: [{name: 'Authorization', value: 'Basic aKjs6LK8ijkSfT'}, {name: 'Content-type', value: 'application/json'}],
           label: '${label}',
           data: '${data}',
-          extra:  '${time}'
+          time:  '${time}'
         },
         {
           url: 'http://mywebservice/rest/api/2/resource/id3',
           headers: [{name: 'Authorization', value: 'Basic aKjs6LK8ijkSfT'}, {name: 'Content-type', value: 'application/json'}],
           label: '${label}',
           data: '${data}',
-          extra:  '${time}'
+          time:  '${time}'
         }
       ],
       columns: 1, rows: 1,
@@ -94,13 +94,13 @@ In your Mozaik dashboard's config.js file, add the webservice url in the <code>a
 
 key               | required | description
 ------------------|----------|-------------------------------------------------------------------
-`type`            | yes      | *Always equal to 'json.multidata'*
-`title`           | yes      | *The title to be displayed in the header.*
-`sources`         | yes      | *The list of the sources to be displayed.*
-`sources.url`     | yes      | *The url of the x.th source.*
-`sources.headers` | no       | *Headers to be used to fetch the source.*
-`sources.label`   | yes      | *Label of the row.*
-`sources.data`    | yes      | *Data to be displayed.*
-`sources.extra`   | no       | *Extra information.*
+`type`            | yes      | *Always equal to 'json.multidata' (String)*
+`title`           | yes      | *The title to be displayed in the header (String)*
+`sources`         | yes      | *The list of the sources to be displayed (Array)*
+`sources.url`     | yes      | *The url of the x.th source (URL)*
+`sources.headers` | no       | *Headers to be used to fetch the source (Array)*
+`sources.label`   | yes      | *Label of the row (String)*
+`sources.data`    | yes      | *Data to be displayed (String)*
+`sources.time`    | no       | *Date information (String)*
 
 
