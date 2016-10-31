@@ -1,6 +1,6 @@
 {
   "name": "mozaik-ext-multijson",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Mozaïk multi source json extension",
   "engines": {
     "node": "0.10.x"

@@ -13,7 +13,6 @@ const client = function (mozaik) {
 /*        headers.forEach(function(header){
             req.set(header.name, header.value);
         });*/
-        mozaik.logger.info(chalk.yellow(`[multijson] calling ${ url }`));
         return req.promise();
     }
 
@@ -32,7 +31,7 @@ const client = function (mozaik) {
 
             return Promise.all(builds)
             .then(function() {
-              mozaik.logger.info(chalk.green(`[multijson] arr ${ JSON.stringify(arr) }`));
+              mozaik.logger.info(chalk.yellow(`[multijson] fetched data`));
               return arr;
             })
 

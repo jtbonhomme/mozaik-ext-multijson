@@ -48,12 +48,20 @@ class Data extends Component {
                     </span>
                     <i className="fa fa-user-circle" />
                 </div>
-                <div className="json__value">
+                <div className="widget__body">
                   {builds.map((item, index) =>
-                    <li className="list__list-item" key={index}>
-                      <i className="fa fa-circle-o list__list-item-icon"/>
-                      {item.label}: {item.data} ({item.time})
-                    </li>
+                    <div className="list__item multijson__item" key={index}>
+                        <span className="multijson__data__label" >
+                          {item.label}
+                        </span>
+                        <span className="multijson__data__value" >
+                          {item.data} 
+                        </span>
+                        <span className="multijson__data__time" >
+                           <i className="fa fa-clock-o" />&nbsp;
+                           {item.time}
+                        </span>
+                    </div> 
                   )}
                 </div>
             </div>
