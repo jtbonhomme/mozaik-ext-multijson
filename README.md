@@ -3,7 +3,7 @@
 This widget display data from multiple JSON sources (up to three) in your [Mozaik](http://mozaik.rocks/) dashboard.
 These JSON sources may be either static hosted files or JSON objects fetched from REST API's.
 
-![json](https://raw.githubusercontent.com/jtbonhomme/mozaik-ext-json/master/preview/mozaik-ext-json.png)
+![json](https://raw.githubusercontent.com/jtbonhomme/mozaik-ext-multijson/master/preview/mozaik-ext-multijson.png)
 
 ## Installation
 
