@@ -8,9 +8,9 @@ import Promise from 'bluebird';
 const client = function (mozaik) {
 
     function buildApiRequest(url, headers) {
-        let req     = request.get(url);
-
-/*        headers.forEach(function(header){
+        let req      = request.get(url);
+        let _headers = headers || [];
+/*        _headers.forEach(function(header){
             req.set(header.name, header.value);
         });*/
         return req.promise();
@@ -18,23 +18,22 @@ const client = function (mozaik) {
 
     return {
         data(params) {
-            const {
-                sources
-            } = params;
 
             var arr = [];
             var builds = [];
-            sources.forEach(source => {
+            params.sources.forEach(source => {
+              mozaik.logger.info(chalk.yellow(`[multijson] create promise source ${ source.url}`));
               builds.push(buildApiRequest(source.url)
-                      .then((res) => {arr.push(JSON.parse(res.text))}));
+                      .then((res) => {
+                        arr.push(JSON.parse(res.text))
+                      }));
             });
 
             return Promise.all(builds)
             .then(function() {
               mozaik.logger.info(chalk.yellow(`[multijson] fetched data`));
               return arr;
-            })
-
+            });
         }
     };
 };

@@ -21,7 +21,7 @@ class Data extends Component {
         } = this.props;
 
         return {
-          id: 'multijson.data.${title}.${sources}',
+          id: `multijson.data.${ title }.${ sources }`,
           params: {
             title: this.props.title,
             sources: this.props.sources
@@ -39,7 +39,6 @@ class Data extends Component {
         const { title } = this.props;
         const { builds } = this.state;
 
-        console.log('items : ' + JSON.stringify(builds));
         return (
             <div>
                 <div className="widget__header">
