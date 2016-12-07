@@ -25,7 +25,7 @@ In your Mozaik dashboard's config.js file, add the following section:
 
 ```javascript
   {
-      type:  'json.multidata',
+      type:  'multijson.data',
       title: 'DEPLOYED APPLICATIONS',
       sources: [
         {
@@ -58,7 +58,7 @@ In your Mozaik dashboard's config.js file, add the webservice url in the <code>a
 
 ```javascript
   {
-      type:  'json.multidata',
+      type:  'multijson.data',
       title: 'DEPLOYED APPLICATIONS',
       sources: [
         {
@@ -102,5 +102,3 @@ key               | required | description
 `sources.label`   | yes      | *Label of the row (String)*
 `sources.data`    | yes      | *Data to be displayed (String)*
 `sources.time`    | no       | *Date information (String)*
-
-
